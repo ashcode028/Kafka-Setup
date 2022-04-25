@@ -1,7 +1,12 @@
 # Inter APIs communication using Kafka
 ![](https://github.com/ashcode028/Kafka_setup/blob/2527475449c7a53334c3e982204e6cea4b0d4bb1/kakfa.jpg)
 
-For a complete guide, the Kafka documentation does an excellent job. Below is just a quick overview.
+For a complete guide, the [Kafka documentation](https://kafka.apache.org/documentation.html) does an excellent job. Below is just a quick overview.
+
+Also, there is [confluent platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html), which makes your job easier if you want GUI rather than terminal mode.
+
+Here, we talk only about terminal mode where we start kafka using prebuild docker image.
+
 ## Pub/Sub system
 Apache Kafka is a distributed publish-subscribe messaging system that is designed to be fast, scalable, and durable.
 Kafka stores streams of records (messages) in topics. Each record consists of a key, a value, and a timestamp.
