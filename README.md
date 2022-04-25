@@ -20,10 +20,47 @@ Consumer groups can subscribe to one or more topics. Each one of these groups ca
 Every message in a topic is delivered to one of the consumer instances inside the group subscribed to that topic. All messages with the same key arrive at the same consumer.
 [Youtube link for better understanding](https://www.youtube.com/watch?v=R873BlNVUB4)
 ## Basic Setup
-- git clone https://github.com/wurstmeister/kafka-docker.git 
-- cd kafka-docker/
-- docker-compose -f docker-compose-expose.yml up
-- docker-compose stop
+- Get the source code and docker images.
+```
+git clone https://github.com/wurstmeister/kafka-docker.git 
+cd kafka-docker/
+```
+- If you want to run the code above from outside Kafka’s shell (outside a Docker container) , you need to expose docker network and kafka brokers , below is the docker image which allows us to create topics, producers outside kafka shell ,inside your application using APIs.
+```
+docker-compose -f docker-compose-expose.yml up
+```
+- To stop the docker
+```
+docker-compose stop
+```
+- Create a topic , this image by default creates one topic called 'topic_test'
+- In your virtual environment, install kafka-python. Make sure when this is installed package 'kafka' isnt installed
+```
+pip install kafka-python
+```
+- In your application, wherever you want a notification , or any message has to passed send you producer instance as its argument and push into the queue
+```
+producer.send('<your topic name>', value=data)
+```
+- Create another repository(in my opinion) to handle consumer.
+```
+from kafka import KafkaConsumer
+from json import loads
+from time import sleep
+# Create consumer instance
+consumer = KafkaConsumer(
+    'topic_test',
+    bootstrap_servers=['localhost:9092'],
+    auto_offset_reset='earliest',
+    enable_auto_commit=True,
+    value_deserializer=lambda x: loads(x.decode('utf-8'))
+)
+for event in consumer:
+    event_data = event.value
+    # Add your code to process messages in the queue.
+    print(event_data)
+    sleep(2)
+```
 ### References:
 - [1](https://stackoverflow.com/questions/65196587/python-threads-and-queue-messages-between-them)
 - [2](https://github.com/dpkp/kafka-python/blob/master/example.py)
