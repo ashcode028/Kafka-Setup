@@ -77,12 +77,12 @@ In the script above:
     - enable_auto_commit is a boolean parameter that states whether the offset will be periodically committed in the background;
     - group_id is the name of the consumer group to join.
 ### References:
-https://www.youtube.com/watch?v=R873BlNVUB4
-https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html
-https://medium.com/big-data-engineering/hello-kafka-world-the-complete-guide-to-kafka-with-docker-and-python-f788e2588cfc
-https://stackoverflow.com/questions/65196587/python-threads-and-queue-messages-between-them
-https://github.com/dpkp/kafka-python/blob/master/example.py
-https://developer.okta.com/blog/2020/01/22/kafka-microservices
-https://towardsdatascience.com/kafka-docker-python-408baf0e1088
-https://towardsdatascience.com/kafka-python-explained-in-10-lines-of-code-800e3e07dad1
+- https://www.youtube.com/watch?v=R873BlNVUB4
+- https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html
+- https://medium.com/big-data-engineering/hello-kafka-world-the-complete-guide-to-kafka-with-docker-and-python-f788e2588cfc
+- https://stackoverflow.com/questions/65196587/python-threads-and-queue-messages-between-them
+- https://github.com/dpkp/kafka-python/blob/master/example.py
+- https://developer.okta.com/blog/2020/01/22/kafka-microservices
+- https://towardsdatascience.com/kafka-docker-python-408baf0e1088
+- https://towardsdatascience.com/kafka-python-explained-in-10-lines-of-code-800e3e07dad1
 
